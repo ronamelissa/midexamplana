@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block head %}
+  this is the detail page
+{% endblock %}
+
+{% block body %}
+  <div align='center' class='container'>
+  <div align='center' class='container'>
+    <h1> Name: {{votes.firstname}}  {{votes.lastname}} </h1>
+    <h4> Position: {{votes.position}} </h4>
+    Platform: {{votes.platform}} <br/>
+    Number of Votes: <input type="text"  id="demo" value="0"> </p>
+    <br/>
+    <hr>
+  <a href ="{% url 'votes:index' %}"> Index </a>  ||
+  <a href ="{% url 'votes:update' votes.id %}"> Update </a> ||
+<button onclick='add()'> Vote </button>
+
+<script>
+var i=0;
+function add(){
+  document.getElementById("demo").value=++i;
+}
+</script>
+
+
+  </div>
+{% endblock %}

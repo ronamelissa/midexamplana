@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block head %}
+this is the create page
+{% endblock %}
+
+{% block body %}
+<form action="{% url 'votes:createposition' %}" method="POST">
+  {% csrf_token %}
+  <center>{% for field in form %}
+  {{ field.label}} <br>{{field}}<br>
+  {{field.errors}}
+    {% endfor %}
+    <input type="submit" value ="Create">
+</form>
+
+{% endblock %}

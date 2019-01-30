@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block head %}
+  this is the index page
+{% endblock %}
+
+{% block body %}
+<div class ='container'>
+<ol>
+  {% for votes in candidate_names %}
+ <div class="card-panel indigo lighten-4">
+     <center>{{votes.lastname}},{{votes.firstname}} <br> Position: {{votes.position}} <center> <a href ="{% url 'votes:detail' votes.id %}"> Details </a> </div><br>
+  {% endfor %}
+</ol> </div>
+<center>   <a href ="{% url 'votes:create' %}"> Create a new candidate</a> ||
+ <a href ="{% url 'votes:createposition' %}"> Create a new position</a>
+
+{% endblock %}
